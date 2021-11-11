@@ -1,6 +1,7 @@
 from rest_framework import serializers
+
 from InventoryApp.models import User
-from django.contrib.auth.hashers import make_password
+from .location import LocationSerializer
 
 class UserSerializer(serializers.ModelSerializer):
 	class Meta:

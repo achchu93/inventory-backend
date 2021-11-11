@@ -21,3 +21,4 @@ class User(AbstractUser):
 
 	class Meta:
 		app_label = 'InventoryApp'
+		db_table = 'user'
