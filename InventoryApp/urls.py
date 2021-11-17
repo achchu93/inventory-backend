@@ -10,6 +10,8 @@ from rest_framework_simplejwt.views import (
 router = DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'locations', views.LocationViewSet)
+router.register(r'vendors', views.VendorViewSet)
+router.register(r'vendor-category', views.VendorCategoryViewSet)
 
 urlpatterns = [
 	path('', include(router.urls)),
