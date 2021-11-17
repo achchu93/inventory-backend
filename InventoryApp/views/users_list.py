@@ -1,3 +1,4 @@
+from functools import partial
 from django.db.models.query import QuerySet
 from rest_framework.serializers import Serializer
 from InventoryApp.models import User
