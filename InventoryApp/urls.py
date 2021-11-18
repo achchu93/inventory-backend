@@ -12,6 +12,9 @@ router.register(r'users', views.UserViewSet)
 router.register(r'locations', views.LocationViewSet)
 router.register(r'vendors', views.VendorViewSet)
 router.register(r'vendor-category', views.VendorCategoryViewSet)
+router.register(r'items', views.ItemViewSet)
+router.register(r'item-category', views.ItemCategoryViewSet)
+router.register(r'skus', views.SkuViewSet)
 
 urlpatterns = [
 	path('', include(router.urls)),
