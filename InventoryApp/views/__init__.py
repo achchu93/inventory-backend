@@ -5,3 +5,4 @@ from .vendor_category import VendorCategoryViewSet
 from .item import ItemViewSet
 from .item_category import ItemCategoryViewSet
 from .sku import SkuViewSet
+from .order import OrderViewSet

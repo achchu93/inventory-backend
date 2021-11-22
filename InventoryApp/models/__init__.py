@@ -6,3 +6,5 @@ from .vendor_category import VendorCategory
 from .item import Item
 from .item_category import ItemCategory
 from .sku import Sku
+from .order import Order
+from .order_item import OrderItem

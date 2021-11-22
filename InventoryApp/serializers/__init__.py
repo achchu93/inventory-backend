@@ -5,3 +5,5 @@ from .vendor_category import VendorCategorySerializer
 from .item import ItemSerializer
 from .item_category import ItemCategorySerializer
 from .sku import SkuSerializer
+from .order import OrderSerializer
+from .order_item import OrderItemSerializer
