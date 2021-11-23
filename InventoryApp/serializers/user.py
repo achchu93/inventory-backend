@@ -27,6 +27,16 @@ class UserSerializer(serializers.ModelSerializer):
 		return user
 
 	def update(self, instance, validated_data):
-		instance.set_password( validated_data.get( 'password', instance.password ) )
+		for key, value in validated_data.items():
+			if(key == 'password'):
+				instance.set_password(value)
+			else:
+				setattr(instance, key, value)
 		instance.save()
 		return instance
+
+	def validate_password(self, value):
+		method = self.context['request'].method;
+		if method in ['PUT', 'PATCH'] and len(value) < 8:
+			raise serializers.ValidationError('Must be 8-12 length')
+		return value
