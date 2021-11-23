@@ -38,7 +38,8 @@ INSTALLED_APPS = [
 	# 'django.contrib.messages',
 	'django.contrib.staticfiles',
 	'rest_framework',
-	'InventoryApp.apps.InventoryappConfig'
+	'InventoryApp.apps.InventoryappConfig',
+	'corsheaders'
 ]
 
 # REST_FRAMEWORK = {
@@ -55,6 +56,8 @@ MIDDLEWARE = [
 	# 'django.contrib.auth.middleware.AuthenticationMiddleware',
 	# 'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'inventoryApi.urls'
@@ -144,3 +147,5 @@ AUTH_USER_MODEL = 'InventoryApp.User'
 # Development email
 if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+CORS_ALLOW_ALL_ORIGINS = True
