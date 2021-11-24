@@ -6,3 +6,4 @@ from .item import ItemViewSet
 from .item_category import ItemCategoryViewSet
 from .sku import SkuViewSet
 from .order import OrderViewSet
+from .auth_user import AuthUserView
