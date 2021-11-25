@@ -1,5 +1,6 @@
 from .user import UserSerializer
 from .location import LocationSerializer
+from .location_team import LocationTeamSeralizer
 from .vendor import VendorSerializer
 from .vendor_category import VendorCategorySerializer
 from .item import ItemSerializer

@@ -1,10 +1,9 @@
 from rest_framework import serializers
 
 from InventoryApp.models import User
-from .location import LocationSerializer
 
 class UserSerializer(serializers.ModelSerializer):
-	locations = LocationSerializer(many=True, read_only=True, required=False)
+	locations = serializers.PrimaryKeyRelatedField(many=True, read_only=True, required=False)
 	class Meta:
 		model = User
 		fields = ['id', 'email', 'password', 'first_name', 'last_name', 'phone', 'is_active', 'is_admin', 'address', 'locations']
