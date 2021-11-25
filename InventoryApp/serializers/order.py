@@ -17,7 +17,6 @@ class OrderSerializer(serializers.ModelSerializer):
 		}
 
 	def create(self, validated_data):
-		print(validated_data)
 		items = []
 		if 'orderitem_set' in validated_data:
 			items = validated_data.pop('orderitem_set')
@@ -25,6 +24,19 @@ class OrderSerializer(serializers.ModelSerializer):
 		for item_data in items:
 			OrderItem.objects.create(order=order, item=item_data['item'], quantity=item_data['quantity'], price=item_data['price'])
 		return order
+
+	def update(self, instance, validated_data):
+		for key, value in validated_data.items():
+			if(key == 'orderitem_set'):
+				instance.items.clear()
+				items = list({object_['item']: object_ for object_ in validated_data.get('orderitem_set', [])}.values()) # get unique items by id
+				for item_data in items:
+					OrderItem.objects.create(order=instance, item=item_data['item'], quantity=item_data['quantity'], price=item_data['price'])
+			else:
+				setattr(instance, key, value)
+
+		instance.save()
+		return instance
 
 
 	def validate_items(self, value):
