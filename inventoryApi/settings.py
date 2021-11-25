@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-jclt32b1+uz67wes6yw(cduix7s8aw(i*4_6c^*$1zh)vm-n2f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'naser-inventory.herokuapp.com', '127.0.0.1' ]
 
 
 # Application definition
