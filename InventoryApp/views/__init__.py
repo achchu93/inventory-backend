@@ -7,3 +7,4 @@ from .item_category import ItemCategoryViewSet
 from .sku import SkuViewSet
 from .order import OrderViewSet
 from .auth_user import AuthUserView
+from .inventory_report import InventoryReportViewSet

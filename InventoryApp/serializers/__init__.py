@@ -8,3 +8,5 @@ from .item_category import ItemCategorySerializer
 from .sku import SkuSerializer
 from .order import OrderSerializer
 from .order_item import OrderItemSerializer
+from .inventory_report import InventoryReportSerializer
+from .inventory_report_item import InventoryReportItemSerializer
