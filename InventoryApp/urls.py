@@ -7,6 +7,8 @@ from rest_framework_simplejwt.views import (
 	TokenRefreshView,
 )
 
+from InventoryApp.views.transfer import TransferViewSet
+
 router = DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'locations', views.LocationViewSet)
@@ -17,6 +19,7 @@ router.register(r'item-category', views.ItemCategoryViewSet)
 router.register(r'skus', views.SkuViewSet)
 router.register(r'orders', views.OrderViewSet)
 router.register(r'inventory-report', views.InventoryReportViewSet)
+router.register(r'transfers', TransferViewSet)
 
 urlpatterns = [
 	path('', include(router.urls)),

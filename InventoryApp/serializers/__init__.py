@@ -10,3 +10,5 @@ from .order import OrderSerializer
 from .order_item import OrderItemSerializer
 from .inventory_report import InventoryReportSerializer
 from .inventory_report_item import InventoryReportItemSerializer
+from .transfer import TransferSerializer
+from .transfer_item import TransferItemSerializer

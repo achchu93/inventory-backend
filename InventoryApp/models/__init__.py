@@ -10,3 +10,5 @@ from .order import Order
 from .order_item import OrderItem
 from .inventory_report import InventoryReport
 from .inventory_report_item import InventoryReportItem
+from .transfer import Transfer
+from .transfer_item import TransferItem
