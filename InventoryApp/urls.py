@@ -20,6 +20,8 @@ router.register(r'skus', views.SkuViewSet)
 router.register(r'orders', views.OrderViewSet)
 router.register(r'inventory-report', views.InventoryReportViewSet)
 router.register(r'transfers', TransferViewSet)
+router.register(r'receipts', views.ReceiptViewSet)
+router.register(r'receipt-files', views.ReceiptFileViewSet)
 
 urlpatterns = [
 	path('', include(router.urls)),

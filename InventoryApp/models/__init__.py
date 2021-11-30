@@ -12,3 +12,5 @@ from .inventory_report import InventoryReport
 from .inventory_report_item import InventoryReportItem
 from .transfer import Transfer
 from .transfer_item import TransferItem
+from .receipt import Receipt
+from .receipt_file import ReceiptFile

@@ -12,3 +12,5 @@ from .inventory_report import InventoryReportSerializer
 from .inventory_report_item import InventoryReportItemSerializer
 from .transfer import TransferSerializer
 from .transfer_item import TransferItemSerializer
+from .receipt import ReceiptSerializer
+from .receipt_file import ReceiptFileSerializer
