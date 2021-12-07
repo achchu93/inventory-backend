@@ -2,9 +2,11 @@ from rest_framework import serializers
 
 from InventoryApp.models import Order, OrderItem
 from .order_item import OrderItemSerializer
+from .user import UserSerializer
 
 class OrderSerializer(serializers.ModelSerializer):
 	items = OrderItemSerializer(many=True, source='orderitem_set')
+	ordered_by = UserSerializer()
 
 	class Meta:
 		model = Order
