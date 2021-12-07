@@ -95,8 +95,9 @@ DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.mysql',
 		'NAME': 'inventory',
-		'USER': 'inventory',
-		'PASSWORD': 'xaqho9-nIpbax-syqzor',
+		'PASSWORD': 'xaqho9-nIpbax-syqzor' if not DEBUG else '',
+		'USER': 'inventory' if not DEBUG else 'root',
+		'PASSWORD': '',
 		'HOST': 'localhost',
 		'PORT': ''
 	}

@@ -11,9 +11,11 @@ class InventoryReportItemSerializer(serializers.ModelSerializer):
 		fields = ['item', 'quantity']
 
 	def to_representation(self, instance):
-		data = super().to_representation(instance)
-		item = Item(id=data['item'])
-		data['item'] = ItemSerializer(item).data
+		original_data = super().to_representation(instance)
+		item = Item.objects.get(id=original_data.get('item'))
+
+		data = ItemSerializer(item).data
+		data['quantity'] = original_data.get('quantity')
 
 		return data
 
