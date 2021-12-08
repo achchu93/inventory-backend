@@ -1,12 +1,11 @@
 from rest_framework import serializers
 
-from InventoryApp.models import Order, OrderItem
+from InventoryApp.models import Order, OrderItem, User
 from .order_item import OrderItemSerializer
 from .user import UserSerializer
 
 class OrderSerializer(serializers.ModelSerializer):
 	items = OrderItemSerializer(many=True, source='orderitem_set')
-	ordered_by = UserSerializer()
 
 	class Meta:
 		model = Order
@@ -53,3 +52,11 @@ class OrderSerializer(serializers.ModelSerializer):
 					'items': ['Expected a list of items but got type {input_type}'.format(input_type=type(data.get('items')).__name__)]
 				})
 		return super().to_internal_value(data)
+
+	def to_representation(self, instance):
+		data = super().to_representation(instance)
+
+		if data.get('ordered_by'):
+			data['ordered_by'] = UserSerializer(User.objects.get(id=data.get('ordered_by')))
+
+		return data
