@@ -14,7 +14,8 @@ class OrderSerializer(serializers.ModelSerializer):
 			'ordered_by': {'required': True, 'read_only': False},
 			'location': {'required': True, 'read_only': False},
 			'vendor': {'required': True, 'read_only': False},
-			'items': {'required': True, 'read_only': False, 'many': True, 'queryset': OrderItem.objects.all()}
+			'items': {'required': True, 'read_only': False, 'many': True, 'queryset': OrderItem.objects.all()},
+			'note': {'required': False}
 		}
 
 	def create(self, validated_data):
@@ -57,6 +58,6 @@ class OrderSerializer(serializers.ModelSerializer):
 		data = super().to_representation(instance)
 
 		if data.get('ordered_by'):
-			data['ordered_by'] = UserSerializer(User.objects.get(id=data.get('ordered_by')))
+			data['ordered_by'] = UserSerializer(User.objects.get(id=data.get('ordered_by'))).data
 
 		return data
