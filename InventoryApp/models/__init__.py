@@ -14,3 +14,4 @@ from .transfer import Transfer
 from .transfer_item import TransferItem
 from .receipt import Receipt
 from .receipt_file import ReceiptFile
+from .vendor_item import VendorItem

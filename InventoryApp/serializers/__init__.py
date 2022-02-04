@@ -14,3 +14,5 @@ from .transfer import TransferSerializer
 from .transfer_item import TransferItemSerializer
 from .receipt import ReceiptSerializer
 from .receipt_file import ReceiptFileSerializer
+from .vendor_item import VendorItemSerializer
+from .item_vendors import ItemVendorsSerializer
