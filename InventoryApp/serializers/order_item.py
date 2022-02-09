@@ -14,7 +14,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 	def to_representation(self, instance):
 		data = super().to_representation(instance)
-		item = Item(id=data['item'])
+		item = Item.objects.get(pk=data['item'])
 		data['item'] = ItemSerializer(item).data
 
 		return data

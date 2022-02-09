@@ -2,8 +2,8 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from InventoryApp.models import Item, VendorItem, Vendor
-from InventoryApp.serializers import ItemSerializer, ItemVendorsSerializer
+from InventoryApp.models import Item, VendorItem, Vendor, Order
+from InventoryApp.serializers import ItemSerializer, ItemVendorsSerializer, OrderSerializer
 
 class ItemViewSet(viewsets.ModelViewSet):
 	queryset = Item.objects.all()
@@ -22,3 +22,9 @@ class ItemViewSet(viewsets.ModelViewSet):
 				VendorItem.objects.create(vendor=Vendor(vendor_data), item=item)
 
 		return Response( ItemVendorsSerializer(VendorItem.objects.filter(item=item), many=True).data )
+
+	@action(detail=True, methods=['get'])
+	def orders(self, request, pk=None):
+		item = self.get_object()
+
+		return Response( OrderSerializer(Order.objects.filter(items__in=[item.id]), many=True).data )

@@ -15,7 +15,7 @@ class OrderSerializer(serializers.ModelSerializer):
 			'location': {'required': True, 'read_only': False},
 			'vendor': {'required': True, 'read_only': False},
 			'items': {'required': True, 'read_only': False, 'many': True, 'queryset': OrderItem.objects.all()},
-			'note': {'required': False}
+			'note': {'required': False, 'default': '', 'allow_blank': True}
 		}
 
 	def create(self, validated_data):
