@@ -13,7 +13,7 @@ class InventoryReport(models.Model):
 	closed_at = models.DateTimeField(null=True)
 	status = models.CharField(max_length=2, choices=STATUSES)
 	started_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='started_by')
-	closed_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='closed_by')
+	closed_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='closed_by', null=True)
 	location = models.ForeignKey(Location, on_delete=models.CASCADE)
 	items = models.ManyToManyField(Item, through='InventoryReportItem', related_name='inventory_reports')
 

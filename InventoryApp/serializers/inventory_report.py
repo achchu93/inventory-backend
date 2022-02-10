@@ -11,7 +11,7 @@ class InventoryReportSerializer(serializers.ModelSerializer):
 		fields = ['id','started_at', 'started_by', 'closed_at', 'closed_by', 'location', 'items']
 		extra_kwargs = {
 			'started_by': {'required': True, 'read_only': False},
-			'closed_by': {'required': True, 'read_only': False},
+			'closed_by': {'required': False, 'read_only': False},
 			'closed_at': {'required': False},
 			'items': {'required': True, 'read_only': False, 'many': True, 'queryset': InventoryReportItem.objects.all()}
 		}
