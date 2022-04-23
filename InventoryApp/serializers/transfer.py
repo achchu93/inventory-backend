@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
-from InventoryApp.models import Transfer, TransferItem
+from InventoryApp.models import Transfer, TransferItem, Location, User
 from .transfer_item import TransferItemSerializer
+from InventoryApp.serializers import LocationSerializer, UserSerializer
 
 class TransferSerializer(serializers.ModelSerializer):
 	items = TransferItemSerializer(many=True, source='transferitem_set')
@@ -52,3 +53,14 @@ class TransferSerializer(serializers.ModelSerializer):
 					'items': ['Expected a list of items but got type {input_type}'.format(input_type=type(data.get('items')).__name__)]
 				})
 		return super().to_internal_value(data)
+
+	def to_representation(self, instance):
+		data = super().to_representation(instance)
+
+		if data.get('to_location'):
+			data['to_location'] = LocationSerializer(Location.objects.get(id=data.get('to_location'))).data
+
+		if data.get('requested_by'):
+			data['requested_by'] = UserSerializer(User.objects.get(id=data.get('requested_by'))).data
+
+		return data
